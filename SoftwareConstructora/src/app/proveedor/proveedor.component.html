@@ -1,0 +1,39 @@
+<form class="form" >
+    <h2>Ingreso de nuevo proveedor</h2>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="nombre"   name="nombre" class="form-control" placeholder="Nombre Proveedor">
+      <input type="text" [(ngModel)]="telefono" name="telefono" class="form-control" placeholder="Telefono Proveedor">
+      <input type="text" [(ngModel)]="correo"   name="correo" class="form-control" placeholder="Correo Proveedor">
+      <input type="text" [(ngModel)]="ubicacion" name="ubicacion" class="form-control" placeholder="Ubicación Proveedor">
+    </div>
+    <input (click)="createProveedor();" class="btn btn-success btn-lg" name="" value="GUARDAR">
+  </form>
+  <br>
+  <table class="table">
+    <thead>
+      <th>Nombre</th>
+      <th>Telefono</th>
+      <th>Correo</th>
+      <th>Ubicación</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let Proveedor of proveedores">
+        <td>
+          <a (click)="editar(Proveedor)">
+            <span *ngIf="Proveedor!==editandoProveedor">{{Proveedor.nombre}}</span>
+            <input type="text" *ngIf="Proveedor==editandoProveedor" [(ngModel)]="Proveedor.nombre" (blur)="update()" (keyup.enter)="update()" >
+          </a>
+        </td>
+        <td>
+          <span>{{Proveedor.telefono}}</span>
+        </td>
+        <td>
+          <span>{{Proveedor.correo}}</span>
+        </td>
+        <td>
+          <span>{{Proveedor.ubicacion}}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
