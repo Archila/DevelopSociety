@@ -1,0 +1,3 @@
+pip install virtualenv  (opcional)
+pip install flask-mysqlS
+pip install -U flask-cors
